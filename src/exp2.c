@@ -4,10 +4,7 @@
 #define HEIGHT 920
 #define TILE 2
 
-#define MASS 0.05
-
-#define DAMPING_ZONE 40
-#define DAMPING_FACTOR 0.92
+#define MASS 0.07
 
 #define WAVE_IMPLEMENTATION
 #include "wave.h"
@@ -22,7 +19,7 @@ int main(void){
     BeginDrawing();
     ClearBackground(BLACK);
 
-    vertical_line_wave(CP(0.3), RP(0.3), RP(0.4), 1.0, 8);
+    vertical_line_wave(CP(0.3), RP(0.3), RP(0.4), 0.8, 8);
 
     float t = 0.4, c = 0.18;
     

@@ -10,6 +10,9 @@
 #define RP(v) (int)(R*(v))
 #define CP(v) (int)(C*(v))
 
+#define DAMPING_ZONE 60
+#define DAMPING_FACTOR 0.95
+
 typedef enum {
   ORDINARY,
   WALL
