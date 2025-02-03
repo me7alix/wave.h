@@ -6,8 +6,8 @@
 
 #define MASS 0.05
 
-#define DAMPING_ZONE 50
-#define DAMPING_FACTOR 0.97
+#define DAMPING_ZONE 40
+#define DAMPING_FACTOR 0.92
 
 #define WAVE_IMPLEMENTATION
 #include "wave.h"

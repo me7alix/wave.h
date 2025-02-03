@@ -11,12 +11,13 @@
 #define CP(v) (int)(C*(v))
 
 typedef enum {
-  REGULAR,
+  ORDINARY,
   WALL
 } CellType;
 
 typedef struct {
   float p, v, m;
+  CellType t;
 } Cell;
 
 #endif
@@ -30,15 +31,8 @@ Cell *ncs;
 void cs_draw(){
   for(int i = 0; i < R; i++){
     for(int j = 0; j < C; j++){
-      float cv = cs[i * C + j].p;
-      float r = cv*255;
-      r = r > 255 ? 255 : r;
-      float g = -cv*255;
-      g = g > 255 ? 255 : g;
-      if(cv > 0) g = 0;
-      else r = 0;
-      Color c = {(unsigned char) r, (unsigned char) g, 0, 255};
-      if(cs[i*C+j].m > 9999.0) c = RED;
+      Color c = {255, 255, 255, (unsigned char)(fminf(fabsf(cs[i * C + j].p)*255, 255.0))};
+      if(cs[i*C+j].t == WALL) c = RED;
       DrawRectangle(j * TILE, i * TILE, TILE, TILE, c);
     }
   }
@@ -60,7 +54,8 @@ void cs_upd_pos(){
 
   for(int i = 0; i < R; i++){
     for(int j = 0; j < C; j++){
-      ncs[i*C+j].p += ncs[i*C+j].v * GetFrameTime();
+      if(ncs[i*C+j].t != WALL)
+	ncs[i*C+j].p += ncs[i*C+j].v * GetFrameTime();
     }
   }
 
@@ -93,6 +88,7 @@ void cs_init(){
       cs[i*C+j].p = 0;
       cs[i*C+j].v = 0;
       cs[i*C+j].m = MASS;
+      cs[i*C+j].t = ORDINARY;
     }
   }
 }
@@ -124,7 +120,7 @@ void vertical_line_wave(int x, int y, int l, float amp, float freq){
 
 void vertical_line_wall(int x, int y, int l){
   for(int i = 0; i < l; i++){
-    if(y+i < R-1) cs[(y+i)*C+(x)].m = 9999999.0;
+    if(y+i < R-1) cs[(y+i)*C+(x)].t = WALL;
   }
 }
 

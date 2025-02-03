@@ -6,8 +6,8 @@
 
 #define MASS 0.05
 
-#define DAMPING_ZONE 50
-#define DAMPING_FACTOR 0.97
+#define DAMPING_ZONE 40
+#define DAMPING_FACTOR 0.92
 
 #define WAVE_IMPLEMENTATION
 #include "wave.h"
@@ -22,7 +22,7 @@ int main(void){
     BeginDrawing();
     ClearBackground(BLACK);
 
-    vertical_line_wave(CP(0.3), RP(0.3), RP(0.4), 1.0, 10);
+    vertical_line_wave(CP(0.3), RP(0.3), RP(0.4), 1.0, 8);
 
     float t = 0.4, c = 0.18;
     
