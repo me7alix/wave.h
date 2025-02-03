@@ -22,7 +22,7 @@ int main(void){
     BeginDrawing();
     ClearBackground(BLACK);
 
-    vertical_line_wave(CP(0.3), RP(0.2), RP(0.6), 4.0, 10);
+    vertical_line_wave(CP(0.3), RP(0.2), RP(0.6), 1.0, 10);
 
     vertical_line_wall(CP(0.6), RP(0.35), RP(0.3));
 
