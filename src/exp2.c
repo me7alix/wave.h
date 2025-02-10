@@ -1,9 +1,6 @@
-#include <raylib.h>
-
 #define WIDTH 1280
 #define HEIGHT 920
 #define TILE 2
-
 #define MASS 0.07
 
 #define WAVE_IMPLEMENTATION

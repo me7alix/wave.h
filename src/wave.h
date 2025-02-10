@@ -1,6 +1,7 @@
 #ifndef WAVE_H_
 #define WAVE_H_
 
+#include <raylib.h>
 #include <stdlib.h>
 #include <math.h>
 
